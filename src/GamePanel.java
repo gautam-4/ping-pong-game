@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public void startGame(){
         for (int i = 0; i < DISC_SIZE; i++) {
-            X[i] = i * UNIT_SIZE; // Adjust the spacing as needed
+            X[i] = i * UNIT_SIZE;
         }
         moveBall();
         running = true;
