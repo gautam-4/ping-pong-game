@@ -114,6 +114,11 @@ public class GamePanel extends JPanel implements ActionListener {
             g.setFont(new Font("Ink Free", Font.BOLD, 20));
             FontMetrics metrics1 = getFontMetrics(g.getFont());
             g.drawString("Score: "+score, (SCREEN_WIDTH - metrics1.stringWidth("Score: "+score))/2, g.getFont().getSize());
+            //credits
+            g.setColor(Color.white);
+            g.setFont(new Font("Ink Free", Font.BOLD, 20));
+            FontMetrics metrics2 = getFontMetrics(g.getFont());
+            g.drawString("Game by GAUTAM ARORA: "+score, (SCREEN_WIDTH - metrics2.stringWidth("Game by GAUTAM ARORA"))/2, g.getFont().getSize());
         }
         else{
             gameOver(g);
