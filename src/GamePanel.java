@@ -111,14 +111,9 @@ public class GamePanel extends JPanel implements ActionListener {
 
             //score
             g.setColor(Color.white);
-            g.setFont(new Font("Ink Free", Font.BOLD, 20));
+            g.setFont(new Font("Monospaced", Font.BOLD, 20));
             FontMetrics metrics1 = getFontMetrics(g.getFont());
             g.drawString("Score: "+score, (SCREEN_WIDTH - metrics1.stringWidth("Score: "+score))/2, g.getFont().getSize());
-            //credits
-            g.setColor(Color.white);
-            g.setFont(new Font("Ink Free", Font.BOLD, 20));
-            FontMetrics metrics2 = getFontMetrics(g.getFont());
-            g.drawString("Game by GAUTAM ARORA: "+score, (SCREEN_WIDTH - metrics2.stringWidth("Game by GAUTAM ARORA"))/2, g.getFont().getSize());
         }
         else{
             gameOver(g);
@@ -144,14 +139,19 @@ public class GamePanel extends JPanel implements ActionListener {
     public void gameOver(Graphics g){
         //Game Over text
         g.setColor(Color.white);
-        g.setFont(new Font("Ink Free", Font.BOLD, 75));
+        g.setFont(new Font("Monospaced", Font.BOLD, 75));
         FontMetrics metrics = getFontMetrics(g.getFont());
         g.drawString("GAME OVER", (SCREEN_WIDTH - metrics.stringWidth("GAME OVER"))/2, SCREEN_HEIGHT/2);
-
+        //score
         g.setColor(Color.white);
-        g.setFont(new Font("Ink Free", Font.BOLD, 20));
+        g.setFont(new Font("Monospaced", Font.BOLD, 20));
         FontMetrics metrics1 = getFontMetrics(g.getFont());
         g.drawString("Score: "+score, (SCREEN_WIDTH - metrics1.stringWidth("Score: "+score))/2, g.getFont().getSize());
+        //credits
+        g.setColor(Color.white);
+        g.setFont(new Font("Plain", Font.BOLD, 20));
+        FontMetrics metrics2 = getFontMetrics(g.getFont());
+        g.drawString("Game by GAUTAM ARORA", (SCREEN_WIDTH - metrics2.stringWidth("Game by GAUTAM ARORA"))/2, SCREEN_HEIGHT*3/4);
     }
 
     @Override
@@ -167,7 +167,7 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private class MyKeyAdapter implements KeyListener {
-        
+
         @Override
         public void keyTyped(KeyEvent e) {  }
 
@@ -175,13 +175,13 @@ public class GamePanel extends JPanel implements ActionListener {
         public void keyPressed(KeyEvent e) {
             switch(e.getKeyCode()){
                 case KeyEvent.VK_LEFT:
-                        direction = 'L';
+                    direction = 'L';
                     break;
                 case KeyEvent.VK_RIGHT:
-                        direction = 'R';
+                    direction = 'R';
                     break;
             }
-    }
+        }
 
         @Override
         public void keyReleased(KeyEvent e) {
