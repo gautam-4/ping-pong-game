@@ -128,14 +128,13 @@ public class GamePanel extends JPanel implements ActionListener {
         if(ballY<UNIT_SIZE){
             reverseBallY();
         }
-        if(ballY>=SCREEN_HEIGHT-UNIT_SIZE){
+        if(ballY>=SCREEN_HEIGHT){
             running = false;
             timer.stop();
         }
         if(ballX>=SCREEN_WIDTH || ballX<UNIT_SIZE){
             reverseBallX();
         }
-
     }
     public void gameOver(Graphics g){
         //Game Over text
@@ -148,8 +147,8 @@ public class GamePanel extends JPanel implements ActionListener {
         g.setFont(new Font("Ink Free", Font.BOLD, 20));
         FontMetrics metrics1 = getFontMetrics(g.getFont());
         g.drawString("Score: "+score, (SCREEN_WIDTH - metrics1.stringWidth("Score: "+score))/2, g.getFont().getSize());
-
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(running){
@@ -163,10 +162,9 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private class MyKeyAdapter implements KeyListener {
+        
         @Override
-        public void keyTyped(KeyEvent e) {
-
-        }
+        public void keyTyped(KeyEvent e) {  }
 
         @Override
         public void keyPressed(KeyEvent e) {
@@ -186,5 +184,3 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 }
-
-
